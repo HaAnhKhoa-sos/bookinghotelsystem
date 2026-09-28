@@ -1,0 +1,67 @@
+:root {
+  --admin-sidebar: #111827;
+  --admin-accent: #2563eb;
+  --admin-bg: #f3f4f6;
+}
+
+body {
+  background: var(--admin-bg);
+}
+
+.admin-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: 100vh;
+}
+
+.admin-sidebar {
+  background: var(--admin-sidebar);
+  color: #fff;
+  padding: 1.5rem 1rem;
+}
+
+.admin-sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.admin-sidebar nav a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  padding: 0.8rem 0.75rem;
+  border-radius: 8px;
+}
+
+.admin-sidebar nav a:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.admin-main {
+  padding: 2rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.stat-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+.stat-card strong {
+  font-size: 2rem;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .admin-layout {
+    grid-template-columns: 1fr;
+  }
+}
