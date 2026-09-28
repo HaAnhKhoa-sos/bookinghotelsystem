@@ -15,3 +15,393 @@ body {
   gap: 1rem;
   margin-bottom: 1.5rem;
 }
+
+.logo {
+  text-decoration: none;
+}
+
+.home-section {
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
+}
+
+.home-section-tint {
+  background: #edf4f3;
+}
+
+.section-heading {
+  max-width: 680px;
+  margin-bottom: 1.5rem;
+}
+
+.section-heading h2,
+.section-heading-row h2 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.55rem;
+  color: #52756e;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.section-intro {
+  max-width: 760px;
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.8;
+}
+
+.section-heading-row,
+.listing-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.text-link,
+.back-link {
+  color: #27665b;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.text-link:hover,
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.room-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.room-card .body {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.room-card .body h3,
+.room-card .body p {
+  margin: 0;
+}
+
+.room-title-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.room-card .text-link {
+  margin-top: 0.35rem;
+}
+
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.amenity-item {
+  padding-top: 1rem;
+  border-top: 2px solid #bdd0ca;
+}
+
+.amenity-number {
+  color: #52756e;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.amenity-item h3 {
+  margin: 0.75rem 0 0.4rem;
+}
+
+.amenity-item p,
+.room-card .body > p:not(.eyebrow) {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.room-list-header {
+  background: #163e3a;
+}
+
+.room-list-header .eyebrow {
+  color: #b4d5cc;
+}
+
+.room-list-header p:last-child {
+  margin-bottom: 0;
+  color: #e1eeeb;
+}
+
+.room-search {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+  align-items: end;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1.25rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.room-search label,
+.room-filters > label {
+  margin: 0;
+}
+
+.room-search button {
+  width: auto;
+  min-width: 140px;
+}
+
+.room-results {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  align-items: start;
+  gap: 2rem;
+}
+
+.room-filters {
+  display: grid;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.room-filters h2,
+.listing-heading h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.room-filters fieldset {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.room-filters legend {
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.room-filters .check-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  font-weight: 400;
+}
+
+.room-filters .check-option input {
+  width: auto;
+}
+
+.listing-heading {
+  margin-bottom: 1rem;
+}
+
+.listing-heading span {
+  color: var(--muted);
+}
+
+.room-listing .room-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.room-card-image {
+  display: block;
+}
+
+.room-listing .room-card .meta {
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.room-listing .room-card .meta .price {
+  text-align: right;
+}
+
+.room-listing .room-card .btn {
+  justify-self: start;
+}
+
+.room-detail-page {
+  padding-top: 1.5rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.detail-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.8fr);
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.detail-photo img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.detail-summary h1 {
+  margin: 0 0 0.75rem;
+  font-size: 2.4rem;
+}
+
+.detail-price {
+  margin: 0 0 1rem;
+  color: #27665b;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.detail-price span {
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+
+.detail-lead,
+.detail-information p {
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.room-specs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.room-specs div {
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+}
+
+.room-specs dt {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.room-specs dd {
+  margin: 0.35rem 0 0;
+  font-weight: 700;
+}
+
+.booking-cta {
+  width: 100%;
+}
+
+.detail-information {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 3rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.detail-information h2 {
+  margin-top: 0;
+  font-size: 1.35rem;
+}
+
+.amenity-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem 1rem;
+  padding-left: 1.2rem;
+  color: var(--muted);
+}
+
+.site-footer a {
+  color: #cce2dc;
+}
+
+@media (max-width: 900px) {
+  .amenities-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .room-results {
+    grid-template-columns: 1fr;
+  }
+
+  .room-filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .room-filters h2,
+  .room-filters fieldset {
+    grid-column: 1 / -1;
+  }
+
+  .detail-layout {
+    grid-template-columns: 1fr 0.9fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .section-heading h2,
+  .section-heading-row h2 {
+    font-size: 1.65rem;
+  }
+
+  .section-heading-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .amenities-grid,
+  .room-search,
+  .detail-layout,
+  .detail-information {
+    grid-template-columns: 1fr;
+  }
+
+  .room-search button {
+    width: 100%;
+  }
+
+  .room-filters {
+    grid-template-columns: 1fr;
+  }
+
+  .room-filters h2,
+  .room-filters fieldset {
+    grid-column: auto;
+  }
+
+  .detail-summary h1 {
+    font-size: 2rem;
+  }
+
+  .detail-information {
+    gap: 1.5rem;
+  }
+}

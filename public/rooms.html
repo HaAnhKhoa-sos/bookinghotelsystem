@@ -8,8 +8,40 @@
     <link rel="stylesheet" href="../assets/css/public.css" />
   </head>
   <body>
-    <header class="site-header"><div class="container nav"><div class="logo">HotelBooking</div><nav><a href="../index.html">Trang chủ</a><a href="rooms.html">Phòng</a><a href="booking.html">Đặt phòng</a><a href="login.html">Đăng nhập</a></nav></div></header>
-    <main class="container"><section class="section-card"><h1>Danh sách phòng</h1><p>Khám phá các lựa chọn lưu trú phù hợp với bạn.</p><div class="filter-bar"><label>Loại phòng <select><option>Tất cả</option><option>Phòng đơn</option><option>Phòng đôi</option></select></label><label>Số khách <input type="number" min="1" value="2" /></label></div><p><a class="btn btn-primary" href="room-detail.html">Xem phòng mẫu</a></p></section></main>
+    <header class="site-header">
+      <div class="container nav">
+        <a class="logo" href="../index.html">HotelBooking</a>
+        <nav><a href="../index.html">Trang chủ</a><a href="rooms.html" aria-current="page">Phòng nghỉ</a><a href="../index.html#amenities">Tiện nghi</a><a href="booking.html">Đặt phòng</a><a href="login.html">Đăng nhập</a></nav>
+      </div>
+    </header>
+    <main>
+      <section class="page-header room-list-header"><div class="container"><p class="eyebrow">Không gian nghỉ dưỡng</p><h1>Chọn căn phòng dành cho bạn</h1><p>Tìm nơi nghỉ phù hợp cho chuyến đi tiếp theo.</p></div></section>
+      <section class="container page-content">
+        <form class="room-search" action="rooms.html" method="get">
+          <label>Nhận phòng<input type="date" name="checkin" /></label>
+          <label>Trả phòng<input type="date" name="checkout" /></label>
+          <label>Số người<select name="guests"><option value="1">1 người</option><option value="2" selected>2 người</option><option value="3">3 người</option><option value="4">4 người</option></select></label>
+          <button class="btn btn-primary" type="submit">Tìm phòng</button>
+        </form>
+        <div class="room-results">
+          <aside class="room-filters" aria-label="Bộ lọc phòng">
+            <h2>Bộ lọc</h2>
+            <label>Loại phòng<select name="type"><option>Tất cả loại phòng</option><option>Superior</option><option>Deluxe</option><option>Suite</option></select></label>
+            <label>Ngân sách mỗi đêm<select name="price"><option>Tất cả mức giá</option><option>Dưới 1.500.000đ</option><option>1.500.000đ - 2.500.000đ</option><option>Trên 2.500.000đ</option></select></label>
+            <fieldset><legend>Tiện nghi</legend><label class="check-option"><input type="checkbox" /> Wi-Fi miễn phí</label><label class="check-option"><input type="checkbox" /> Bao gồm bữa sáng</label><label class="check-option"><input type="checkbox" /> Bồn tắm</label></fieldset>
+          </aside>
+          <div class="room-listing">
+            <div class="listing-heading"><h2>Danh sách phòng</h2><span>3 lựa chọn</span></div>
+            <div class="room-grid">
+              <article class="room-card"><a class="room-card-image" href="room-detail.html"><img class="room-image" src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Phòng Superior với giường đôi" /></a><div class="body"><p class="eyebrow">Thoải mái, tiện nghi</p><h3><a class="room-title-link" href="room-detail.html">Phòng Superior</a></h3><div class="meta"><span>2 khách · 28 m²</span><span class="price">1.200.000đ / đêm</span></div><p>Không gian ấm cúng với giường đôi, phù hợp cho kỳ nghỉ ngắn ngày.</p><a class="btn btn-primary" href="room-detail.html">Xem chi tiết</a></div></article>
+              <article class="room-card"><a class="room-card-image" href="room-detail.html"><img class="room-image" src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Phòng Deluxe sáng với nội thất hiện đại" /></a><div class="body"><p class="eyebrow">Được yêu thích</p><h3><a class="room-title-link" href="room-detail.html">Phòng Deluxe</a></h3><div class="meta"><span>2 khách · 35 m²</span><span class="price">1.800.000đ / đêm</span></div><p>Phòng rộng rãi, cửa sổ lớn và khu vực nghỉ ngơi thoáng đãng.</p><a class="btn btn-primary" href="room-detail.html">Xem chi tiết</a></div></article>
+              <article class="room-card"><a class="room-card-image" href="room-detail.html"><img class="room-image" src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Phòng Suite rộng với khu vực tiếp khách" /></a><div class="body"><p class="eyebrow">Không gian cao cấp</p><h3><a class="room-title-link" href="room-detail.html">Phòng Suite</a></h3><div class="meta"><span>4 khách · 52 m²</span><span class="price">2.600.000đ / đêm</span></div><p>Suite rộng rãi với phòng khách riêng, lý tưởng cho gia đình.</p><a class="btn btn-primary" href="room-detail.html">Xem chi tiết</a></div></article>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer"><div class="container"><p>© 2026 HotelBooking · <a href="../index.html">Trang chủ</a></p></div></footer>
     <script src="../assets/js/main.js"></script>
   </body>
 </html>

@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hotel Booking System</title>
     <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/public.css" />
   </head>
   <body>
     <header class="site-header">
       <div class="container nav">
-        <div class="logo">HotelBooking</div>
+        <a class="logo" href="index.html">HotelBooking</a>
         <nav>
-          <a href="index.html">Trang chủ</a>
-          <a href="public/rooms.html">Phòng</a>
+          <a href="#about">Giới thiệu</a>
+          <a href="public/rooms.html">Phòng nghỉ</a>
+          <a href="#amenities">Tiện nghi</a>
           <a href="public/booking.html">Đặt phòng</a>
           <a href="public/login.html">Đăng nhập</a>
         </nav>
@@ -23,39 +25,69 @@
       <section class="hero">
         <div class="container hero-content">
           <div>
-            <span class="badge">Khuyến mãi mùa hè</span>
-            <h1>Trải nghiệm lưu trú sang trọng</h1>
+            <span class="badge">Chào mừng đến với HotelBooking</span>
+            <h1>Kỳ nghỉ của bạn bắt đầu từ đây</h1>
             <p>
-              Khám phá các phòng nghỉ đẹp mắt, dịch vụ chuyên nghiệp và trải nghiệm đẳng cấp
-              cho kỳ nghỉ hoặc công tác của bạn.
+              Không gian nghỉ dưỡng thoải mái, dịch vụ chu đáo và những lựa chọn phòng phù hợp
+              cho mọi hành trình.
             </p>
             <div class="actions">
-              <a class="btn btn-primary" href="public/rooms.html">Xem phòng</a>
-              <a class="btn btn-secondary" href="public/booking.html">Đặt ngay</a>
+              <a class="btn btn-primary" href="public/rooms.html">Khám phá phòng</a>
+              <a class="btn btn-secondary" href="#about">Về khách sạn</a>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="features container">
-        <div class="feature-card">
-          <h3>Vị trí tuyệt đẹp</h3>
-          <p>Nằm ở trung tâm thành phố với giao thông thuận tiện.</p>
+      <section class="home-section container" id="about">
+        <div class="section-heading">
+          <p class="eyebrow">Về chúng tôi</p>
+          <h2>Nơi nghỉ ngơi cho những chuyến đi đáng nhớ</h2>
         </div>
-        <div class="feature-card">
-          <h3>Dịch vụ 24/7</h3>
-          <p>Đội ngũ hỗ trợ sẵn sàng phục vụ mọi lúc.</p>
+        <p class="section-intro">
+          HotelBooking mang đến không gian lưu trú tiện nghi, vị trí thuận tiện và đội ngũ luôn
+          sẵn sàng hỗ trợ. Dù là chuyến công tác ngắn ngày hay kỳ nghỉ cùng gia đình, chúng tôi
+          giúp bạn an tâm tận hưởng từng khoảnh khắc.
+        </p>
+      </section>
+
+      <section class="home-section home-section-tint">
+        <div class="container">
+          <div class="section-heading section-heading-row">
+            <div><p class="eyebrow">Lựa chọn nổi bật</p><h2>Phòng nghỉ được yêu thích</h2></div>
+            <a class="text-link" href="public/rooms.html">Xem tất cả phòng</a>
+          </div>
+          <div class="room-grid">
+            <article class="room-card">
+              <img class="room-image" src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Phòng Superior với giường đôi" />
+              <div class="body"><p class="eyebrow">Thoải mái, tiện nghi</p><h3>Phòng Superior</h3><div class="meta"><span>2 khách · 28 m²</span><span class="price">1.200.000đ / đêm</span></div><a class="text-link" href="public/room-detail.html">Xem chi tiết</a></div>
+            </article>
+            <article class="room-card">
+              <img class="room-image" src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Phòng Deluxe rộng rãi và sáng" />
+              <div class="body"><p class="eyebrow">Được yêu thích</p><h3>Phòng Deluxe</h3><div class="meta"><span>2 khách · 35 m²</span><span class="price">1.800.000đ / đêm</span></div><a class="text-link" href="public/room-detail.html">Xem chi tiết</a></div>
+            </article>
+            <article class="room-card">
+              <img class="room-image" src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Phòng Suite với khu vực tiếp khách" />
+              <div class="body"><p class="eyebrow">Không gian cao cấp</p><h3>Phòng Suite</h3><div class="meta"><span>4 khách · 52 m²</span><span class="price">2.600.000đ / đêm</span></div><a class="text-link" href="public/room-detail.html">Xem chi tiết</a></div>
+            </article>
+          </div>
         </div>
-        <div class="feature-card">
-          <h3>Giá tốt</h3>
-          <p>Chương trình ưu đãi hợp lý cho mọi nhu cầu lưu trú.</p>
+      </section>
+
+      <section class="home-section container" id="amenities">
+        <div class="section-heading"><p class="eyebrow">Trải nghiệm trọn vẹn</p><h2>Tiện nghi dành cho bạn</h2></div>
+        <div class="amenities-grid">
+          <article class="amenity-item"><span class="amenity-number">01</span><h3>Ẩm thực tại chỗ</h3><p>Thưởng thức bữa sáng và các món ăn được chuẩn bị mỗi ngày.</p></article>
+          <article class="amenity-item"><span class="amenity-number">02</span><h3>Wi-Fi tốc độ cao</h3><p>Kết nối ổn định trong phòng và các khu vực chung.</p></article>
+          <article class="amenity-item"><span class="amenity-number">03</span><h3>Hỗ trợ 24/7</h3><p>Đội ngũ lễ tân luôn sẵn sàng hỗ trợ trong suốt kỳ nghỉ.</p></article>
+          <article class="amenity-item"><span class="amenity-number">04</span><h3>Vị trí thuận tiện</h3><p>Dễ dàng di chuyển đến các điểm tham quan và trung tâm thành phố.</p></article>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="container">
-        <p>© 2026 HotelBooking System</p>
+        <p>© 2026 HotelBooking · Kỳ nghỉ thoải mái bắt đầu từ đây.</p>
       </div>
     </footer>
   </body>
