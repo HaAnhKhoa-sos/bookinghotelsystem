@@ -1,2 +1,35 @@
 <!DOCTYPE html>
-<html lang="vi"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Quản lý phòng | HotelBooking Admin</title><link rel="stylesheet" href="../assets/css/style.css" /><link rel="stylesheet" href="../assets/css/admin.css" /></head><body><div class="admin-layout"><aside class="admin-sidebar"><h2>HotelBooking</h2><nav><a href="dashboard.html">Tổng quan</a><a href="rooms.html">Phòng</a><a href="bookings.html">Đặt phòng</a><a href="customers.html">Khách hàng</a><a href="room-types.html">Loại phòng</a></nav></aside><main class="admin-main"><h1>Quản lý phòng</h1><p><a class="btn btn-primary" href="room-form.html">Thêm phòng</a></p><div class="stat-card"><p>Chưa có dữ liệu phòng. Hãy thêm phòng đầu tiên.</p></div></main></div><script src="../assets/js/main.js"></script></body></html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý phòng | HotelBooking Admin</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/admin.css" />
+  </head>
+  <body>
+    <div class="admin-layout">
+      <aside class="admin-sidebar"><a class="admin-brand" href="dashboard.html">HotelBooking <span>ADMIN</span></a><nav aria-label="Điều hướng quản trị"><a href="dashboard.html">Tổng quan</a><a href="rooms.html" aria-current="page">Phòng</a><a href="bookings.html">Đặt phòng</a><a href="customers.html">Khách hàng</a><a href="room-types.html">Loại phòng</a><a href="../index.html">Xem trang khách</a></nav></aside>
+      <main class="admin-main">
+        <header class="admin-page-heading"><div><p class="eyebrow">Danh mục lưu trú</p><h1>Quản lý phòng</h1></div><a class="btn btn-primary" href="room-form.html">+ Thêm phòng</a></header>
+        <section class="admin-card">
+          <form class="admin-toolbar admin-filter" action="rooms.html" method="get">
+            <label class="search-label">Tìm phòng<input class="search-box" type="search" name="q" placeholder="Tên hoặc số phòng" /></label>
+            <label>Loại phòng<select name="type"><option value="">Tất cả loại</option><option>Superior</option><option>Deluxe</option><option>Suite</option></select></label>
+            <label>Trạng thái<select name="status"><option value="">Tất cả trạng thái</option><option>Trống</option><option>Đang sử dụng</option><option>Bảo trì</option></select></label>
+            <button class="btn btn-primary" type="submit">Lọc</button>
+          </form>
+          <div class="table-scroll"><table class="admin-table">
+            <thead><tr><th>Số phòng</th><th>Tên phòng</th><th>Loại</th><th>Sức chứa</th><th>Giá / đêm</th><th>Trạng thái</th><th>Thao tác</th></tr></thead>
+            <tbody>
+              <tr><td>105</td><td>Superior Garden</td><td>Superior</td><td>2 khách</td><td>1.200.000đ</td><td><span class="admin-status status-confirmed">Trống</span></td><td><a href="room-form.html">Chỉnh sửa</a></td></tr>
+              <tr><td>302</td><td>Deluxe City View</td><td>Deluxe</td><td>2 khách</td><td>1.800.000đ</td><td><span class="admin-status status-booked">Đang sử dụng</span></td><td><a href="room-form.html">Chỉnh sửa</a></td></tr>
+              <tr><td>501</td><td>Family Suite</td><td>Suite</td><td>4 khách</td><td>2.600.000đ</td><td><span class="admin-status status-maintenance">Bảo trì</span></td><td><a href="room-form.html">Chỉnh sửa</a></td></tr>
+            </tbody>
+          </table></div>
+        </section>
+      </main>
+    </div>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

@@ -1,2 +1,77 @@
 <!DOCTYPE html>
-<html lang="vi"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Đặt phòng của tôi | HotelBooking</title><link rel="stylesheet" href="../assets/css/style.css" /><link rel="stylesheet" href="../assets/css/public.css" /></head><body><main class="container"><section class="section-card"><h1>Đặt phòng của tôi</h1><p>Bạn chưa có đặt phòng nào trong hệ thống.</p><a class="btn btn-primary" href="rooms.html">Tìm phòng</a> <a href="profile.html">Hồ sơ cá nhân</a></section></main><script src="../assets/js/main.js"></script></body></html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản lý đặt phòng - HotelBooking</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/public.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="logo" href="../index.html">HotelBooking</a>
+      <nav>
+        <a href="../index.html">Trang chủ</a>
+        <a href="profile.html">Tài khoản: Xin chào, Lộc!</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container fade-in">
+    <div class="section-heading" style="margin-top: 40px; margin-bottom: 0;">
+      <p class="eyebrow">Bảng điều khiển</p>
+      <h2>Quản lý tài khoản</h2>
+    </div>
+
+    <div class="dashboard-container">
+      <!-- Sidebar Menu -->
+      <aside class="sidebar-nav dashboard-card" style="padding: 20px; height: fit-content;">
+        <a href="profile.html">Thông tin cá nhân</a>
+        <a href="my-bookings.html" class="active">Phòng đã đặt</a>
+        <a href="login.html" style="color: red; margin-top: 20px;">Đăng xuất</a>
+      </aside>
+
+      <!-- Nội dung chính (My Bookings) -->
+      <section class="dashboard-content">
+        <div class="dashboard-card">
+          <div style="padding: 20px; border-bottom: 1px solid #eaeaea;">
+            <h3 style="margin: 0;">Lịch sử đặt phòng</h3>
+          </div>
+          
+          <!-- Item Đặt phòng -->
+          <div class="booking-item">
+            <div>
+              <p class="eyebrow">#HB2026VN</p>
+              <h4 style="margin: 5px 0;">Phòng Superior</h4>
+              <p style="color: #666; font-size: 0.9rem;">Nhận: 15/10/2026 - Trả: 18/10/2026</p>
+            </div>
+            <div style="text-align: right;">
+              <span class="status-badge status-success">Đã xác nhận</span>
+              <p style="font-weight: bold; margin-top: 10px;">3.600.000đ</p>
+            </div>
+          </div>
+
+          <!-- Item Đặt phòng 2 -->
+          <div class="booking-item">
+            <div>
+              <p class="eyebrow">#HB1998XY</p>
+              <h4 style="margin: 5px 0;">Phòng Suite (Hủy)</h4>
+              <p style="color: #666; font-size: 0.9rem;">Nhận: 01/09/2026 - Trả: 03/09/2026</p>
+            </div>
+            <div style="text-align: right;">
+              <span class="status-badge status-pending" style="background:#f8d7da; color:#721c24;">Đã hủy</span>
+              <p style="font-weight: bold; margin-top: 10px;">0đ</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><p>© 2026 HotelBooking · Kỳ nghỉ thoải mái bắt đầu từ đây.</p></div>
+  </footer>
+</body>
+</html>

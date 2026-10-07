@@ -1,2 +1,51 @@
 <!DOCTYPE html>
-<html lang="vi"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Dashboard | HotelBooking Admin</title><link rel="stylesheet" href="../assets/css/style.css" /><link rel="stylesheet" href="../assets/css/admin.css" /></head><body><div class="admin-layout"><aside class="admin-sidebar"><h2>HotelBooking</h2><nav><a href="dashboard.html">Tổng quan</a><a href="rooms.html">Phòng</a><a href="bookings.html">Đặt phòng</a><a href="customers.html">Khách hàng</a><a href="room-types.html">Loại phòng</a></nav></aside><main class="admin-main"><h1>Tổng quan</h1><div class="stats-grid"><div class="stat-card"><span>Đặt phòng</span><strong>24</strong></div><div class="stat-card"><span>Phòng trống</span><strong>12</strong></div><div class="stat-card"><span>Khách hàng</span><strong>86</strong></div></div></main></div><script src="../assets/js/main.js"></script></body></html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tổng quan | HotelBooking Admin</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/admin.css" />
+  </head>
+  <body>
+    <div class="admin-layout">
+      <aside class="admin-sidebar">
+        <a class="admin-brand" href="dashboard.html">HotelBooking <span>ADMIN</span></a>
+        <nav aria-label="Điều hướng quản trị">
+          <a href="dashboard.html" aria-current="page">Tổng quan</a>
+          <a href="rooms.html">Phòng</a>
+          <a href="bookings.html">Đặt phòng</a>
+          <a href="customers.html">Khách hàng</a>
+          <a href="room-types.html">Loại phòng</a>
+          <a href="../index.html">Xem trang khách</a>
+        </nav>
+      </aside>
+      <main class="admin-main">
+        <header class="admin-page-heading">
+          <div><p class="eyebrow">Xin chào, quản trị viên</p><h1>Tổng quan</h1></div>
+          <span class="admin-date">Thứ Tư, 7 tháng 10, 2026</span>
+        </header>
+        <section class="stats-grid" aria-label="Thống kê">
+          <article class="stat-card"><span>Đặt phòng tháng này</span><strong>24</strong><small>+8% so với tháng trước</small></article>
+          <article class="stat-card"><span>Phòng đang trống</span><strong>12</strong><small>Trên tổng số 36 phòng</small></article>
+          <article class="stat-card"><span>Khách hàng</span><strong>86</strong><small>6 khách mới trong tháng</small></article>
+          <article class="stat-card"><span>Doanh thu dự kiến</span><strong>48,6tr</strong><small>Tháng 10, 2026</small></article>
+        </section>
+        <section class="admin-card">
+          <div class="admin-toolbar"><div><p class="eyebrow">Cần xử lý</p><h2>Đặt phòng gần đây</h2></div><a class="text-link" href="bookings.html">Tất cả đặt phòng →</a></div>
+          <div class="table-scroll">
+            <table class="admin-table">
+              <thead><tr><th>Mã đặt phòng</th><th>Khách hàng</th><th>Phòng</th><th>Nhận phòng</th><th>Trạng thái</th></tr></thead>
+              <tbody>
+                <tr><td>#HB2026VN</td><td>Nguyễn Minh Anh</td><td>Deluxe 302</td><td>15/10/2026</td><td><span class="admin-status status-confirmed">Đã xác nhận</span></td></tr>
+                <tr><td>#HB2027AB</td><td>Trần Gia Bảo</td><td>Superior 105</td><td>18/10/2026</td><td><span class="admin-status status-pending">Chờ xác nhận</span></td></tr>
+                <tr><td>#HB2028CD</td><td>Lê Thu Hà</td><td>Suite 501</td><td>20/10/2026</td><td><span class="admin-status status-confirmed">Đã xác nhận</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

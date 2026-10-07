@@ -1,5 +1,100 @@
 <!DOCTYPE html>
 <html lang="vi">
-  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Đặt phòng | HotelBooking</title><link rel="stylesheet" href="../assets/css/style.css" /><link rel="stylesheet" href="../assets/css/public.css" /></head>
-  <body><header class="site-header"><div class="container nav"><div class="logo">HotelBooking</div><nav><a href="../index.html">Trang chủ</a><a href="rooms.html">Phòng</a><a href="booking.html">Đặt phòng</a></nav></div></header><main class="container"><section class="section-card"><h1>Thông tin đặt phòng</h1><form action="booking-success.html"><p><label>Họ và tên<br /><input type="text" required /></label></p><p><label>Email<br /><input type="email" required /></label></p><p><label>Ngày nhận phòng<br /><input type="date" required /></label></p><p><label>Ngày trả phòng<br /><input type="date" required /></label></p><button class="btn btn-primary" type="submit">Xác nhận đặt phòng</button></form></section></main><script src="../assets/js/main.js"></script></body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đặt phòng | HotelBooking</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/public.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a class="logo" href="../index.html">HotelBooking</a>
+        <nav aria-label="Điều hướng chính">
+          <a href="../index.html">Trang chủ</a>
+          <a href="rooms.html">Phòng nghỉ</a>
+          <a href="my-bookings.html">Đơn đặt phòng</a>
+        </nav>
+      </div>
+    </header>
+    <main class="container page-content">
+      <div class="section-heading">
+        <p class="eyebrow">Bắt đầu kỳ nghỉ</p>
+        <h1>Thông tin đặt phòng</h1>
+        <p>Vui lòng điền thông tin liên hệ và lịch lưu trú của bạn.</p>
+      </div>
+      <div class="booking-layout">
+        <form class="form-box booking-form" action="booking-success.html" method="post">
+          <h2>Thông tin khách hàng</h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="fullname">Họ và tên *</label>
+              <input class="form-control" type="text" id="fullname" name="fullname" autocomplete="name" placeholder="Nguyễn Văn An" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Số điện thoại *</label>
+              <input class="form-control" type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" pattern="[0-9+().\-\s]{9,15}" placeholder="0912 345 678" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Địa chỉ email *</label>
+              <input class="form-control" type="email" id="email" name="email" autocomplete="email" placeholder="ban@example.com" required />
+            </div>
+            <div class="form-group">
+              <label for="room">Loại phòng *</label>
+              <select class="form-control" id="room" name="room" required>
+                <option value="">Chọn loại phòng</option>
+                <option value="superior">Superior — 1.200.000đ / đêm</option>
+                <option value="deluxe">Deluxe — 1.800.000đ / đêm</option>
+                <option value="suite">Suite — 2.600.000đ / đêm</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="checkin">Ngày nhận phòng *</label>
+              <input class="form-control" type="date" id="checkin" name="checkin" required />
+            </div>
+            <div class="form-group">
+              <label for="checkout">Ngày trả phòng *</label>
+              <input class="form-control" type="date" id="checkout" name="checkout" required />
+            </div>
+            <div class="form-group">
+              <label for="guests">Số khách *</label>
+              <select class="form-control" id="guests" name="guests" required>
+                <option value="1">1 khách</option>
+                <option value="2" selected>2 khách</option>
+                <option value="3">3 khách</option>
+                <option value="4">4 khách</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="payment">Phương thức thanh toán</label>
+              <select class="form-control" id="payment" name="payment">
+                <option value="at-hotel">Thanh toán tại khách sạn</option>
+                <option value="bank-transfer">Chuyển khoản ngân hàng</option>
+                <option value="card">Thẻ thanh toán</option>
+              </select>
+            </div>
+            <div class="form-group form-group-wide">
+              <label for="requests">Yêu cầu đặc biệt</label>
+              <textarea class="form-control" id="requests" name="requests" rows="4" placeholder="Ví dụ: giường phụ, giờ nhận phòng dự kiến..."></textarea>
+            </div>
+          </div>
+          <p class="form-note">* Trường bắt buộc. Giá cuối cùng được xác nhận theo số đêm lưu trú và tình trạng phòng.</p>
+          <button class="btn btn-primary btn-block" type="submit">Gửi yêu cầu đặt phòng</button>
+        </form>
+        <aside class="booking-summary">
+          <p class="eyebrow">Cần hỗ trợ?</p>
+          <h2>Chúng tôi luôn sẵn sàng</h2>
+          <p>Thông tin đặt phòng sẽ được nhân viên xác nhận lại với bạn qua email hoặc điện thoại.</p>
+          <p><strong>Điện thoại:</strong> <a href="tel:+842839001234">(+84) 28 3900 1234</a></p>
+          <p><strong>Email:</strong> <a href="mailto:hello@hotelbooking.vn">hello@hotelbooking.vn</a></p>
+          <a class="text-link" href="rooms.html">← Xem lại danh sách phòng</a>
+        </aside>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="container"><p>© 2026 HotelBooking · Kỳ nghỉ thoải mái bắt đầu từ đây.</p></div>
+    </footer>
+    <script src="../assets/js/main.js"></script>
+  </body>
 </html>

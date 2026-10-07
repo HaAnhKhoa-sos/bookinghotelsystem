@@ -1,2 +1,37 @@
 <!DOCTYPE html>
-<html lang="vi"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Thêm phòng | HotelBooking Admin</title><link rel="stylesheet" href="../assets/css/style.css" /><link rel="stylesheet" href="../assets/css/admin.css" /></head><body><div class="admin-layout"><aside class="admin-sidebar"><h2>HotelBooking</h2><nav><a href="dashboard.html">Tổng quan</a><a href="rooms.html">Phòng</a><a href="bookings.html">Đặt phòng</a></nav></aside><main class="admin-main"><h1>Thông tin phòng</h1><div class="stat-card"><form action="rooms.html"><p><label>Tên phòng<br /><input type="text" required /></label></p><p><label>Loại phòng<br /><select><option>Deluxe</option><option>Suite</option></select></label></p><p><label>Giá mỗi đêm<br /><input type="number" min="0" required /></label></p><button class="btn btn-primary" type="submit">Lưu phòng</button></form></div></main></div><script src="../assets/js/main.js"></script></body></html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thông tin phòng | HotelBooking Admin</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/admin.css" />
+  </head>
+  <body>
+    <div class="admin-layout">
+      <aside class="admin-sidebar"><a class="admin-brand" href="dashboard.html">HotelBooking <span>ADMIN</span></a><nav aria-label="Điều hướng quản trị"><a href="dashboard.html">Tổng quan</a><a href="rooms.html" aria-current="page">Phòng</a><a href="bookings.html">Đặt phòng</a><a href="customers.html">Khách hàng</a><a href="room-types.html">Loại phòng</a><a href="../index.html">Xem trang khách</a></nav></aside>
+      <main class="admin-main">
+        <header class="admin-page-heading"><div><p class="eyebrow">Danh mục lưu trú</p><h1>Thông tin phòng</h1></div><a class="text-link" href="rooms.html">← Quay lại danh sách</a></header>
+        <section class="admin-card admin-form-card">
+          <form action="rooms.html" method="get">
+            <div class="admin-form-grid">
+              <div class="form-group"><label for="room-number">Số phòng *</label><input class="form-control" type="text" id="room-number" name="room_number" placeholder="Ví dụ: 302" required /></div>
+              <div class="form-group"><label for="room-name">Tên phòng *</label><input class="form-control" type="text" id="room-name" name="room_name" placeholder="Ví dụ: Deluxe City View" required /></div>
+              <div class="form-group"><label for="room-type">Loại phòng *</label><select class="form-control" id="room-type" name="room_type" required><option value="">Chọn loại phòng</option><option>Superior</option><option>Deluxe</option><option>Suite</option></select></div>
+              <div class="form-group"><label for="room-status">Trạng thái *</label><select class="form-control" id="room-status" name="status" required><option value="available">Trống</option><option value="occupied">Đang sử dụng</option><option value="maintenance">Bảo trì</option></select></div>
+              <div class="form-group"><label for="price">Giá mỗi đêm (VNĐ) *</label><input class="form-control" type="number" id="price" name="price" min="0" step="1000" placeholder="1800000" required /></div>
+              <div class="form-group"><label for="capacity">Sức chứa (khách) *</label><input class="form-control" type="number" id="capacity" name="capacity" min="1" max="10" value="2" required /></div>
+              <div class="form-group"><label for="area">Diện tích (m²)</label><input class="form-control" type="number" id="area" name="area" min="1" placeholder="35" /></div>
+              <div class="form-group"><label for="bed">Loại giường</label><input class="form-control" type="text" id="bed" name="bed" placeholder="1 giường đôi" /></div>
+              <div class="form-group form-group-wide"><label for="image">Đường dẫn hình ảnh</label><input class="form-control" type="url" id="image" name="image" placeholder="https://example.com/room.jpg" /></div>
+              <div class="form-group form-group-wide"><label for="description">Mô tả</label><textarea class="form-control" id="description" name="description" rows="4" placeholder="Mô tả không gian và tiện nghi phòng"></textarea></div>
+              <fieldset class="form-group form-group-wide admin-checkboxes"><legend>Tiện nghi</legend><label><input type="checkbox" name="amenities" value="wifi" /> Wi-Fi miễn phí</label><label><input type="checkbox" name="amenities" value="breakfast" /> Bao gồm bữa sáng</label><label><input type="checkbox" name="amenities" value="bathtub" /> Bồn tắm</label><label><input type="checkbox" name="amenities" value="view" /> Cửa sổ / ban công</label></fieldset>
+            </div>
+            <div class="form-actions"><a class="btn btn-secondary admin-cancel" href="rooms.html">Hủy</a><button class="btn btn-primary" type="submit">Lưu phòng</button></div>
+          </form>
+        </section>
+      </main>
+    </div>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

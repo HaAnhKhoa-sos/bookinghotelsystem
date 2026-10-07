@@ -1,2 +1,37 @@
 <!DOCTYPE html>
-<html lang="vi"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Quản lý đặt phòng | HotelBooking Admin</title><link rel="stylesheet" href="../assets/css/style.css" /><link rel="stylesheet" href="../assets/css/admin.css" /></head><body><div class="admin-layout"><aside class="admin-sidebar"><h2>HotelBooking</h2><nav><a href="dashboard.html">Tổng quan</a><a href="rooms.html">Phòng</a><a href="bookings.html">Đặt phòng</a><a href="customers.html">Khách hàng</a><a href="room-types.html">Loại phòng</a></nav></aside><main class="admin-main"><h1>Quản lý đặt phòng</h1><div class="stat-card"><p>Chưa có đặt phòng cần xử lý.</p></div></main></div><script src="../assets/js/main.js"></script></body></html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý đặt phòng | HotelBooking Admin</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/admin.css" />
+  </head>
+  <body>
+    <div class="admin-layout">
+      <aside class="admin-sidebar"><a class="admin-brand" href="dashboard.html">HotelBooking <span>ADMIN</span></a><nav aria-label="Điều hướng quản trị"><a href="dashboard.html">Tổng quan</a><a href="rooms.html">Phòng</a><a href="bookings.html" aria-current="page">Đặt phòng</a><a href="customers.html">Khách hàng</a><a href="room-types.html">Loại phòng</a><a href="../index.html">Xem trang khách</a></nav></aside>
+      <main class="admin-main">
+        <header class="admin-page-heading"><div><p class="eyebrow">Theo dõi lưu trú</p><h1>Quản lý đặt phòng</h1></div></header>
+        <section class="admin-card">
+          <form class="admin-toolbar admin-filter" action="bookings.html" method="get">
+            <label class="search-label">Tìm đặt phòng<input class="search-box" type="search" name="q" placeholder="Mã đặt phòng hoặc tên khách" /></label>
+            <label>Trạng thái<select name="status"><option value="">Tất cả trạng thái</option><option>Chờ xác nhận</option><option>Đã xác nhận</option><option>Đã hoàn tất</option><option>Đã hủy</option></select></label>
+            <label>Từ ngày<input type="date" name="from" /></label>
+            <label>Đến ngày<input type="date" name="to" /></label>
+            <button class="btn btn-primary" type="submit">Lọc</button>
+          </form>
+          <div class="table-scroll"><table class="admin-table">
+            <thead><tr><th>Mã đặt phòng</th><th>Khách hàng</th><th>Phòng</th><th>Thời gian lưu trú</th><th>Tổng tiền</th><th>Trạng thái</th><th>Thao tác</th></tr></thead>
+            <tbody>
+              <tr><td>#HB2026VN</td><td>Nguyễn Minh Anh<br /><small>minhanh@example.com</small></td><td>Deluxe 302</td><td>15/10/2026 – 18/10/2026</td><td>5.400.000đ</td><td><span class="admin-status status-confirmed">Đã xác nhận</span></td><td><a href="#booking-detail">Chi tiết</a></td></tr>
+              <tr><td>#HB2027AB</td><td>Trần Gia Bảo<br /><small>giabao@example.com</small></td><td>Superior 105</td><td>18/10/2026 – 20/10/2026</td><td>2.400.000đ</td><td><span class="admin-status status-pending">Chờ xác nhận</span></td><td><a href="#booking-detail">Chi tiết</a></td></tr>
+              <tr><td>#HB2028CD</td><td>Lê Thu Hà<br /><small>thuha@example.com</small></td><td>Suite 501</td><td>20/10/2026 – 23/10/2026</td><td>7.800.000đ</td><td><span class="admin-status status-cancelled">Đã hủy</span></td><td><a href="#booking-detail">Chi tiết</a></td></tr>
+            </tbody>
+          </table></div>
+          <p class="table-caption">Đang hiển thị 3 đặt phòng mẫu.</p>
+        </section>
+      </main>
+    </div>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

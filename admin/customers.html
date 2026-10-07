@@ -1,2 +1,35 @@
 <!DOCTYPE html>
-<html lang="vi"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Quản lý khách hàng | HotelBooking Admin</title><link rel="stylesheet" href="../assets/css/style.css" /><link rel="stylesheet" href="../assets/css/admin.css" /></head><body><div class="admin-layout"><aside class="admin-sidebar"><h2>HotelBooking</h2><nav><a href="dashboard.html">Tổng quan</a><a href="rooms.html">Phòng</a><a href="bookings.html">Đặt phòng</a><a href="customers.html">Khách hàng</a><a href="room-types.html">Loại phòng</a></nav></aside><main class="admin-main"><h1>Khách hàng</h1><div class="stat-card"><p>Danh sách khách hàng sẽ hiển thị tại đây.</p></div></main></div><script src="../assets/js/main.js"></script></body></html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Khách hàng | HotelBooking Admin</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/admin.css" />
+  </head>
+  <body>
+    <div class="admin-layout">
+      <aside class="admin-sidebar"><a class="admin-brand" href="dashboard.html">HotelBooking <span>ADMIN</span></a><nav aria-label="Điều hướng quản trị"><a href="dashboard.html">Tổng quan</a><a href="rooms.html">Phòng</a><a href="bookings.html">Đặt phòng</a><a href="customers.html" aria-current="page">Khách hàng</a><a href="room-types.html">Loại phòng</a><a href="../index.html">Xem trang khách</a></nav></aside>
+      <main class="admin-main">
+        <header class="admin-page-heading"><div><p class="eyebrow">Thông tin khách lưu trú</p><h1>Khách hàng</h1></div></header>
+        <section class="admin-card">
+          <form class="admin-toolbar admin-filter" action="customers.html" method="get">
+            <label class="search-label">Tìm khách hàng<input class="search-box" type="search" name="q" placeholder="Tên, email hoặc số điện thoại" /></label>
+            <label>Nhóm khách<select name="group"><option value="">Tất cả khách hàng</option><option>Khách mới</option><option>Khách thường xuyên</option><option>Khách VIP</option></select></label>
+            <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+          </form>
+          <div class="table-scroll"><table class="admin-table">
+            <thead><tr><th>Khách hàng</th><th>Email</th><th>Số điện thoại</th><th>Số lần đặt</th><th>Tham gia</th><th>Nhóm</th></tr></thead>
+            <tbody>
+              <tr><td><div class="customer-info"><span class="avatar">A</span><strong>Nguyễn Minh Anh</strong></div></td><td>minhanh@example.com</td><td>0912 345 678</td><td>8</td><td>12/02/2026</td><td><span class="badge badge-vip">VIP</span></td></tr>
+              <tr><td><div class="customer-info"><span class="avatar">B</span><strong>Trần Gia Bảo</strong></div></td><td>giabao@example.com</td><td>0988 123 456</td><td>1</td><td>03/10/2026</td><td><span class="badge badge-new">Khách mới</span></td></tr>
+              <tr><td><div class="customer-info"><span class="avatar">H</span><strong>Lê Thu Hà</strong></div></td><td>thuha@example.com</td><td>0903 456 789</td><td>3</td><td>21/06/2026</td><td><span class="badge badge-regular">Thường xuyên</span></td></tr>
+            </tbody>
+          </table></div>
+          <p class="table-caption">Đang hiển thị 3 khách hàng mẫu.</p>
+        </section>
+      </main>
+    </div>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

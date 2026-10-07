@@ -1,2 +1,43 @@
 <!DOCTYPE html>
-<html lang="vi"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Loại phòng | HotelBooking Admin</title><link rel="stylesheet" href="../assets/css/style.css" /><link rel="stylesheet" href="../assets/css/admin.css" /></head><body><div class="admin-layout"><aside class="admin-sidebar"><h2>HotelBooking</h2><nav><a href="dashboard.html">Tổng quan</a><a href="rooms.html">Phòng</a><a href="bookings.html">Đặt phòng</a><a href="customers.html">Khách hàng</a><a href="room-types.html">Loại phòng</a></nav></aside><main class="admin-main"><h1>Loại phòng</h1><div class="stat-card"><p>Quản lý các loại phòng và tiện nghi tại đây.</p></div></main></div><script src="../assets/js/main.js"></script></body></html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loại phòng | HotelBooking Admin</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/admin.css" />
+  </head>
+  <body>
+    <div class="admin-layout">
+      <aside class="admin-sidebar"><a class="admin-brand" href="dashboard.html">HotelBooking <span>ADMIN</span></a><nav aria-label="Điều hướng quản trị"><a href="dashboard.html">Tổng quan</a><a href="rooms.html">Phòng</a><a href="bookings.html">Đặt phòng</a><a href="customers.html">Khách hàng</a><a href="room-types.html" aria-current="page">Loại phòng</a><a href="../index.html">Xem trang khách</a></nav></aside>
+      <main class="admin-main">
+        <header class="admin-page-heading"><div><p class="eyebrow">Cấu hình danh mục</p><h1>Loại phòng</h1></div></header>
+        <div class="admin-content-grid">
+          <section class="admin-card">
+            <h2>Danh sách loại phòng</h2>
+            <div class="table-scroll"><table class="admin-table">
+              <thead><tr><th>Tên loại</th><th>Sức chứa</th><th>Diện tích</th><th>Giá tham khảo / đêm</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Superior</strong></td><td>2 khách</td><td>28 m²</td><td>1.200.000đ</td></tr>
+                <tr><td><strong>Deluxe</strong></td><td>2 khách</td><td>35 m²</td><td>1.800.000đ</td></tr>
+                <tr><td><strong>Suite</strong></td><td>4 khách</td><td>52 m²</td><td>2.600.000đ</td></tr>
+              </tbody>
+            </table></div>
+          </section>
+          <section class="admin-card">
+            <h2>Thêm loại phòng</h2>
+            <form action="room-types.html" method="get">
+              <div class="form-group"><label for="type-name">Tên loại phòng *</label><input class="form-control" type="text" id="type-name" name="name" placeholder="Ví dụ: Executive" required /></div>
+              <div class="form-group"><label for="type-capacity">Sức chứa tối đa *</label><input class="form-control" type="number" id="type-capacity" name="capacity" min="1" max="10" required /></div>
+              <div class="form-group"><label for="type-area">Diện tích (m²)</label><input class="form-control" type="number" id="type-area" name="area" min="1" /></div>
+              <div class="form-group"><label for="type-price">Giá tham khảo (VNĐ / đêm) *</label><input class="form-control" type="number" id="type-price" name="price" min="0" step="1000" required /></div>
+              <div class="form-group"><label for="type-description">Mô tả</label><textarea class="form-control" id="type-description" name="description" rows="3" placeholder="Thông tin nổi bật của loại phòng"></textarea></div>
+              <button class="btn btn-primary" type="submit">Thêm loại phòng</button>
+            </form>
+          </section>
+        </div>
+      </main>
+    </div>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

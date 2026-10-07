@@ -1,2 +1,75 @@
 <!DOCTYPE html>
-<html lang="vi"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Hồ sơ cá nhân | HotelBooking</title><link rel="stylesheet" href="../assets/css/style.css" /><link rel="stylesheet" href="../assets/css/public.css" /></head><body><main class="container"><section class="section-card"><h1>Hồ sơ cá nhân</h1><form><p><label>Họ và tên<br /><input type="text" value="Khách hàng" /></label></p><p><label>Email<br /><input type="email" value="guest@example.com" /></label></p><button class="btn btn-primary" type="submit">Lưu thay đổi</button></form><p><a href="my-bookings.html">Xem đặt phòng</a></p></section></main><script src="../assets/js/main.js"></script></body></html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thông tin cá nhân - HotelBooking</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/public.css">
+</head>
+<body>
+  <!-- Header chung -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="logo" href="../index.html">HotelBooking</a>
+      <nav>
+        <a href="../index.html">Trang chủ</a>
+        <a href="profile.html" style="color: var(--primary); font-weight: bold;">Tài khoản: Xin chào, Lộc!</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container fade-in">
+    <div class="section-heading" style="margin-top: 40px; margin-bottom: 0;">
+      <p class="eyebrow">Bảng điều khiển</p>
+      <h2>Quản lý tài khoản</h2>
+    </div>
+
+    <div class="dashboard-container">
+      <!-- Sidebar Menu -->
+      <aside class="sidebar-nav dashboard-card" style="padding: 20px; height: fit-content;">
+        <!-- Chữ "Thông tin cá nhân" được thêm class="active" để đổi màu -->
+        <a href="profile.html" class="active">Thông tin cá nhân</a>
+        <a href="my-bookings.html">Phòng đã đặt</a>
+        <a href="login.html" style="color: red; margin-top: 20px;">Đăng xuất</a>
+      </aside>
+
+      <!-- Nội dung chính (Form Profile ở bên phải) -->
+      <section class="dashboard-content">
+        <div class="dashboard-card" style="padding: 30px;">
+          <h3 style="margin-top: 0; margin-bottom: 20px; border-bottom: 1px solid #eaeaea; padding-bottom: 10px;">Hồ sơ của bạn</h3>
+          
+          <form action="#" method="post">
+            <div class="form-group">
+              <label for="fullname">Họ và tên</label>
+              <input type="text" id="fullname" name="fullname" class="form-control" autocomplete="name" value="Dềng Đạt Lộc" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Địa chỉ Email</label>
+              <input type="email" id="email" name="email" class="form-control" autocomplete="email" value="loc@example.com" disabled style="background-color: #f5f5f5; cursor: not-allowed;">
+              <small style="color: #666; font-size: 0.85rem; margin-top: 5px; display: block;">Email không thể thay đổi sau khi đăng ký.</small>
+            </div>
+            
+            <div class="form-group">
+              <label for="phone">Số điện thoại</label>
+              <input type="tel" id="phone" name="phone" class="form-control" autocomplete="tel" inputmode="tel" pattern="[0-9+().\-\s]{9,15}" placeholder="Nhập số điện thoại liên hệ">
+            </div>
+
+            <div class="form-group" style="margin-bottom: 30px;">
+              <label for="dob">Ngày sinh</label>
+              <input type="date" id="dob" name="dob" class="form-control" value="2007-05-06">
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+          </form>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><p>© 2026 HotelBooking · Kỳ nghỉ thoải mái bắt đầu từ đây.</p></div>
+  </footer>
+</body>
+</html>

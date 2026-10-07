@@ -24,12 +24,13 @@
           <button class="btn btn-primary" type="submit">Tìm phòng</button>
         </form>
         <div class="room-results">
-          <aside class="room-filters" aria-label="Bộ lọc phòng">
+          <form class="room-filters" action="rooms.html" method="get" aria-label="Bộ lọc phòng">
             <h2>Bộ lọc</h2>
-            <label>Loại phòng<select name="type"><option>Tất cả loại phòng</option><option>Superior</option><option>Deluxe</option><option>Suite</option></select></label>
-            <label>Ngân sách mỗi đêm<select name="price"><option>Tất cả mức giá</option><option>Dưới 1.500.000đ</option><option>1.500.000đ - 2.500.000đ</option><option>Trên 2.500.000đ</option></select></label>
-            <fieldset><legend>Tiện nghi</legend><label class="check-option"><input type="checkbox" /> Wi-Fi miễn phí</label><label class="check-option"><input type="checkbox" /> Bao gồm bữa sáng</label><label class="check-option"><input type="checkbox" /> Bồn tắm</label></fieldset>
-          </aside>
+            <label>Loại phòng<select name="type"><option value="">Tất cả loại phòng</option><option value="superior">Superior</option><option value="deluxe">Deluxe</option><option value="suite">Suite</option></select></label>
+            <label>Ngân sách mỗi đêm<select name="price"><option value="">Tất cả mức giá</option><option value="under-1500000">Dưới 1.500.000đ</option><option value="1500000-2500000">1.500.000đ - 2.500.000đ</option><option value="over-2500000">Trên 2.500.000đ</option></select></label>
+            <fieldset><legend>Tiện nghi</legend><label class="check-option"><input type="checkbox" name="amenities" value="wifi" /> Wi-Fi miễn phí</label><label class="check-option"><input type="checkbox" name="amenities" value="breakfast" /> Bao gồm bữa sáng</label><label class="check-option"><input type="checkbox" name="amenities" value="bathtub" /> Bồn tắm</label></fieldset>
+            <button class="btn btn-primary" type="submit">Áp dụng bộ lọc</button>
+          </form>
           <div class="room-listing">
             <div class="listing-heading"><h2>Danh sách phòng</h2><span>3 lựa chọn</span></div>
             <div class="room-grid">

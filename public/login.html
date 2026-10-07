@@ -1,2 +1,62 @@
 <!DOCTYPE html>
-<html lang="vi"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Đăng nhập | HotelBooking</title><link rel="stylesheet" href="../assets/css/style.css" /><link rel="stylesheet" href="../assets/css/public.css" /></head><body><main class="container"><section class="section-card"><h1>Đăng nhập</h1><form action="my-bookings.html"><p><label>Email<br /><input type="email" required /></label></p><p><label>Mật khẩu<br /><input type="password" required /></label></p><button class="btn btn-primary" type="submit">Đăng nhập</button></form><p>Chưa có tài khoản? <a href="register.html">Đăng ký</a></p></section></main><script src="../assets/js/main.js"></script></body></html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng nhập - HotelBooking</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/public.css">
+</head>
+<body>
+  <!-- Header giống index.html -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="logo" href="../index.html">HotelBooking</a>
+      <nav>
+        <a href="../index.html#about">Giới thiệu</a>
+        <a href="rooms.html">Phòng nghỉ</a>
+        <a href="login.html" style="color: var(--primary); font-weight: bold;">Đăng nhập</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Phần Main có hiệu ứng fade-in -->
+  <main class="fade-in">
+    <div class="auth-container">
+      <div class="auth-card">
+        <div class="section-heading" style="text-align: center;">
+          <h2>Chào mừng trở lại</h2>
+          <p>Đăng nhập để quản lý đặt phòng của bạn</p>
+        </div>
+        
+        <form action="#" method="post">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" class="form-control" autocomplete="email" placeholder="Nhập email của bạn" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Mật khẩu</label>
+            <input type="password" id="password" name="password" class="form-control" autocomplete="current-password" placeholder="Nhập mật khẩu" required>
+          </div>
+          <div class="form-group form-option">
+            <label class="check-option" for="remember">
+              <input type="checkbox" id="remember" name="remember">
+              Ghi nhớ đăng nhập
+            </label>
+            <a class="text-link" href="mailto:hello@hotelbooking.vn?subject=Yeu%20cau%20dat%20lai%20mat%20khau">Quên mật khẩu?</a>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
+        </form>
+        
+        <p style="text-align: center; margin-top: 20px;">
+          Chưa có tài khoản? <a href="register.html" class="text-link">Đăng ký ngay</a>
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><p>© 2026 HotelBooking · Kỳ nghỉ thoải mái bắt đầu từ đây.</p></div>
+  </footer>
+</body>
+</html>
