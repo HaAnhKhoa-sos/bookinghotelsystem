@@ -100,6 +100,56 @@ body {
   margin-top: 0.35rem;
 }
 
+.home-room-filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.home-room-filter label {
+  margin: 0;
+  font-weight: 700;
+}
+
+.home-room-filter input[type="number"] {
+  width: min(100%, 170px);
+}
+
+.home-room-filter select {
+  width: min(100%, 280px);
+}
+
+.home-room-filter .btn {
+  width: auto;
+}
+
+.room-status {
+  width: fit-content;
+  margin: 0;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.room-status-available {
+  background: #e4f5eb;
+  color: #17643b;
+}
+
+.room-status-occupied,
+.room-status-maintenance {
+  background: #fff1dc;
+  color: #8a4b08;
+}
+
+.room-list-note {
+  margin-top: 1.25rem;
+  color: var(--muted);
+}
+
 .amenities-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
