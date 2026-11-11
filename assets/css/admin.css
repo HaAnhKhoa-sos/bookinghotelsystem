@@ -275,6 +275,11 @@ body {
   gap: 0.75rem;
 }
 
+.admin-filter-compact {
+  grid-template-columns: minmax(220px, 1fr) auto;
+  justify-content: start;
+}
+
 .admin-filter label {
   margin: 0;
   color: #475569;
@@ -408,6 +413,45 @@ body {
   color: #1c2430;
 }
 
+.admin-main .admin-dashboard-link {
+  margin-left: 0.4rem;
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  color: #1c2430;
+}
+
+.action-btns {
+  align-items: center;
+}
+
+.action-btns form {
+  display: flex;
+  margin: 0;
+}
+
+.booking-status-form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.booking-status-form select {
+  min-width: 135px;
+  padding: 0.45rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .admin-content-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.8fr);
@@ -477,6 +521,10 @@ body {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .admin-filter-compact {
+    grid-template-columns: 1fr auto;
+  }
+
   .admin-filter .search-label {
     grid-column: 1 / -1;
   }
@@ -498,6 +546,10 @@ body {
 
   .admin-filter,
   .admin-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-filter-compact {
     grid-template-columns: 1fr;
   }
 

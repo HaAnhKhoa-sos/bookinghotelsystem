@@ -21,8 +21,13 @@ $statusClasses = array('available' => 'status-confirmed', 'occupied' => 'status-
     <div><p class="eyebrow">Danh mục lưu trú</p><h1>Quản lý phòng</h1></div>
     <a class="btn btn-primary" href="<?= e(admin_url('rooms', array('action' => 'create'))) ?>">+ Thêm phòng</a>
   </header>
+  <?php if (!empty($adminActionError)): ?><p class="admin-error" role="alert"><?= e($adminActionError) ?></p><?php endif; ?>
   <?php if (!empty($_GET['success']) && $_GET['success'] === 'created'): ?>
     <p class="admin-success" role="status">Đã thêm phòng thành công.</p>
+  <?php elseif (!empty($_GET['success']) && $_GET['success'] === 'updated'): ?>
+    <p class="admin-success" role="status">Đã cập nhật phòng thành công.</p>
+  <?php elseif (!empty($_GET['success']) && $_GET['success'] === 'deleted'): ?>
+    <p class="admin-success" role="status">Đã xóa phòng thành công.</p>
   <?php endif; ?>
   <section class="admin-card">
     <form class="admin-toolbar admin-filter" action="<?= e(base_url('admin/index.php')) ?>" method="get">
@@ -43,7 +48,7 @@ $statusClasses = array('available' => 'status-confirmed', 'occupied' => 'status-
       <button class="btn btn-primary" type="submit">Lọc</button>
     </form>
     <div class="table-scroll"><table class="admin-table">
-      <thead><tr><th>Số phòng</th><th>Tên phòng</th><th>Loại</th><th>Sức chứa</th><th>Giá / đêm</th><th>Trạng thái</th></tr></thead>
+      <thead><tr><th>Số phòng</th><th>Tên phòng</th><th>Loại</th><th>Sức chứa</th><th>Giá / đêm</th><th>Trạng thái</th><th>Thao tác</th></tr></thead>
       <tbody>
         <?php foreach ($rooms as $room): ?>
           <tr>
@@ -53,9 +58,16 @@ $statusClasses = array('available' => 'status-confirmed', 'occupied' => 'status-
             <td><?= e($room['capacity']) ?> khách</td>
             <td><?= e(money($room['price'])) ?></td>
             <td><span class="admin-status <?= e($statusClasses[$room['status']]) ?>"><?= e($statusLabels[$room['status']]) ?></span></td>
+            <td><div class="action-btns">
+              <a class="btn-sm btn-view" href="<?= e(admin_url('rooms', array('action' => 'edit', 'id' => $room['id']))) ?>">Sửa</a>
+              <form action="<?= e(admin_url('rooms', array('action' => 'delete', 'id' => $room['id']))) ?>" method="post" onsubmit="return confirm('Bạn có chắc muốn xóa phòng này?')">
+                <input type="hidden" name="_csrf_token" value="<?= e(admin_csrf_token()) ?>" />
+                <button class="btn-sm btn-delete" type="submit">Xóa</button>
+              </form>
+            </div></td>
           </tr>
         <?php endforeach; ?>
-        <?php if (!$rooms): ?><tr><td colspan="6">Không tìm thấy phòng phù hợp.</td></tr><?php endif; ?>
+        <?php if (!$rooms): ?><tr><td colspan="7">Không tìm thấy phòng phù hợp.</td></tr><?php endif; ?>
       </tbody>
     </table></div>
     <p class="table-caption">Hiển thị tối đa 100 phòng.</p>
@@ -63,9 +75,10 @@ $statusClasses = array('available' => 'status-confirmed', 'occupied' => 'status-
 
   <?php if ($showRoomForm): ?>
     <section class="admin-card admin-form-card">
-      <h2>Thêm phòng</h2>
+      <h2><?= e($formTitle) ?></h2>
       <?php foreach ($errors as $error): ?><p class="admin-error" role="alert"><?= e($error) ?></p><?php endforeach; ?>
-      <form action="<?= e(admin_url('rooms')) ?>" method="post">
+      <form action="<?= e(admin_url('rooms', array('action' => $requestedAction, 'id' => $requestedAction === 'edit' ? $roomId : null))) ?>" method="post">
+        <input type="hidden" name="_csrf_token" value="<?= e(admin_csrf_token()) ?>" />
         <div class="admin-form-grid">
           <div class="form-group"><label for="room-number">Số phòng *</label><input class="form-control" type="text" id="room-number" name="room_number" maxlength="20" value="<?= e($formValues['room_number']) ?>" required /></div>
           <div class="form-group"><label for="room-name">Tên phòng *</label><input class="form-control" type="text" id="room-name" name="room_name" maxlength="100" value="<?= e($formValues['room_name']) ?>" required /></div>
@@ -82,7 +95,7 @@ $statusClasses = array('available' => 'status-confirmed', 'occupied' => 'status-
           <div class="form-group"><label for="image">Đường dẫn hình ảnh</label><input class="form-control" type="url" id="image" name="image_url" value="<?= e($formValues['image_url']) ?>" /></div>
           <fieldset class="admin-checkboxes"><legend>Hiển thị</legend><label><input type="checkbox" name="is_featured" value="1" <?= $formValues['is_featured'] === '1' ? 'checked' : '' ?> /> Phòng nổi bật</label></fieldset>
         </div>
-        <div class="form-actions"><a class="btn btn-secondary admin-cancel" href="<?= e(admin_url('rooms')) ?>">Hủy</a><button class="btn btn-primary" type="submit">Lưu phòng</button></div>
+        <div class="form-actions"><a class="btn btn-secondary admin-cancel" href="<?= e(admin_url('rooms')) ?>">Hủy</a><button class="btn btn-primary" type="submit"><?= $requestedAction === 'edit' ? 'Cập nhật phòng' : 'Lưu phòng' ?></button></div>
       </form>
     </section>
   <?php endif; ?>

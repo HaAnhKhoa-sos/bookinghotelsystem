@@ -2,10 +2,15 @@
 
 require_once __DIR__ . '/../config/init.php';
 
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+
 $routes = array(
     'dashboard' => 'dashboard/index.php',
     'rooms' => 'rooms/index.php',
     'bookings' => 'bookings/index.php',
+    'customers' => 'customers/index.php',
 );
 $page = $_GET['page'] ?? 'dashboard';
 $notFound = !is_string($page) || !isset($routes[$page]);

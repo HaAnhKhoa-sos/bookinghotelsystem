@@ -11,4 +11,4 @@
     <div class="admin-layout">
       <?php require __DIR__ . '/sidebar.php'; ?>
       <div class="admin-main">
-        <p class="admin-notice">Khu vực mô phỏng học tập, chỉ chạy trên localhost. Không có đăng nhập, phân quyền hoặc CSRF; không triển khai lên Internet.</p>
+        <p class="admin-notice">Khu vực mô phỏng học tập, chỉ chạy trên localhost. Chưa có đăng nhập hoặc phân quyền; không triển khai lên Internet.</p>

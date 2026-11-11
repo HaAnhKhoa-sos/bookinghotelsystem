@@ -99,7 +99,8 @@ function getAdminRooms($filters = array())
 
     $where = $conditions ? 'WHERE ' . implode(' AND ', $conditions) : '';
     return db()->fetchAll(
-        'SELECT r.id, r.room_number, r.room_name, r.status, r.bed_description, r.price,
+        'SELECT r.id, r.room_number, r.room_name, r.status, r.bed_description, r.image_url,
+                r.is_featured, r.room_type_id, r.price,
                 rt.name AS room_type_name, rt.capacity
          FROM rooms r
          INNER JOIN room_types rt ON rt.id = r.room_type_id
@@ -107,6 +108,16 @@ function getAdminRooms($filters = array())
          ORDER BY r.room_number ASC
          LIMIT 100',
         $params
+    );
+}
+
+function getAdminRoomById($id)
+{
+    return db()->fetchOne(
+        'SELECT id, room_number, room_name, room_type_id, price, status,
+                bed_description, image_url, is_featured
+         FROM rooms WHERE id = ?',
+        array($id)
     );
 }
 
@@ -128,7 +139,7 @@ function getAdminBookings($filters = array())
 
     $where = $conditions ? 'WHERE ' . implode(' AND ', $conditions) : '';
     return db()->fetchAll(
-        'SELECT b.booking_code, c.full_name, c.email, r.room_number, rt.name AS room_type_name,
+        'SELECT b.id, b.booking_code, c.full_name, c.email, r.room_number, rt.name AS room_type_name,
                 b.check_in, b.check_out, b.total_amount, b.status
          FROM bookings b
          INNER JOIN customers c ON c.id = b.customer_id
@@ -138,6 +149,63 @@ function getAdminBookings($filters = array())
          ORDER BY b.created_at DESC
          LIMIT 100',
         $params
+    );
+}
+
+function getAdminBookingById($id)
+{
+    return db()->fetchOne(
+        'SELECT id, status FROM bookings WHERE id = ?',
+        array($id)
+    );
+}
+
+function getAdminCustomers($filters = array())
+{
+    $conditions = array();
+    $params = array();
+
+    if (!empty($filters['q'])) {
+        $conditions[] = '(c.full_name LIKE ? OR c.email LIKE ? OR c.phone LIKE ?)';
+        $search = '%' . $filters['q'] . '%';
+        $params[] = $search;
+        $params[] = $search;
+        $params[] = $search;
+    }
+
+    $where = $conditions ? 'WHERE ' . implode(' AND ', $conditions) : '';
+    return db()->fetchAll(
+        'SELECT c.id, c.full_name, c.email, c.phone, c.created_at,
+                COUNT(b.id) AS booking_count
+         FROM customers c
+         LEFT JOIN bookings b ON b.customer_id = c.id
+         ' . $where . '
+         GROUP BY c.id, c.full_name, c.email, c.phone, c.created_at
+         ORDER BY c.created_at DESC, c.id DESC
+         LIMIT 100',
+        $params
+    );
+}
+
+function getAdminCustomerById($id)
+{
+    return db()->fetchOne(
+        'SELECT id, full_name, email, phone FROM customers WHERE id = ?',
+        array($id)
+    );
+}
+
+function getAdminDashboardStats()
+{
+    return db()->fetchOne(
+        'SELECT
+            (SELECT COUNT(*) FROM rooms) AS room_count,
+            (SELECT COUNT(*) FROM rooms WHERE status = ?) AS available_count,
+            (SELECT COUNT(*) FROM customers) AS customer_count,
+            (SELECT COUNT(*) FROM bookings) AS booking_count,
+            (SELECT COUNT(*) FROM bookings WHERE status = ?) AS pending_count,
+            (SELECT COALESCE(SUM(total_amount), 0) FROM bookings WHERE status IN (?, ?)) AS revenue',
+        array('available', 'pending', 'confirmed', 'completed')
     );
 }
 
@@ -157,12 +225,16 @@ function validPriceFilter($value)
     return $value;
 }
 
-function roomNumberExists($roomNumber)
+function roomNumberExists($roomNumber, $excludeId = null)
 {
-    return db()->fetchOne(
-        'SELECT id FROM rooms WHERE room_number = ?',
-        array($roomNumber)
-    ) !== null;
+    $sql = 'SELECT id FROM rooms WHERE room_number = ?';
+    $params = array($roomNumber);
+    if ($excludeId !== null) {
+        $sql .= ' AND id <> ?';
+        $params[] = $excludeId;
+    }
+
+    return db()->fetchOne($sql, $params) !== null;
 }
 
 function createRoom($room)
@@ -183,4 +255,89 @@ function createRoom($room)
     );
 
     return db()->insertId();
+}
+
+function updateRoom($id, $room)
+{
+    return db()->execute(
+        'UPDATE rooms
+         SET room_number = ?, room_name = ?, room_type_id = ?, price = ?, status = ?,
+             bed_description = ?, image_url = ?, is_featured = ?
+         WHERE id = ?',
+        array(
+            $room['room_number'],
+            $room['room_name'],
+            $room['room_type_id'],
+            $room['price'],
+            $room['status'],
+            $room['bed_description'],
+            $room['image_url'],
+            $room['is_featured'],
+            $id,
+        )
+    );
+}
+
+function roomHasBookings($id)
+{
+    return db()->fetchOne(
+        'SELECT id FROM bookings WHERE room_id = ? LIMIT 1',
+        array($id)
+    ) !== null;
+}
+
+function deleteRoom($id)
+{
+    return db()->execute('DELETE FROM rooms WHERE id = ?', array($id));
+}
+
+function getAdminCustomerEmailOwner($email, $excludeId = null)
+{
+    $sql = 'SELECT id FROM customers WHERE email = ?';
+    $params = array($email);
+    if ($excludeId !== null) {
+        $sql .= ' AND id <> ?';
+        $params[] = $excludeId;
+    }
+
+    return db()->fetchOne($sql, $params);
+}
+
+function createCustomer($customer)
+{
+    db()->execute(
+        'INSERT INTO customers (full_name, email, phone) VALUES (?, ?, ?)',
+        array($customer['full_name'], $customer['email'], $customer['phone'])
+    );
+
+    return db()->insertId();
+}
+
+function updateCustomer($id, $customer)
+{
+    return db()->execute(
+        'UPDATE customers SET full_name = ?, email = ?, phone = ? WHERE id = ?',
+        array($customer['full_name'], $customer['email'], $customer['phone'], $id)
+    );
+}
+
+function customerHasBookings($id)
+{
+    return db()->fetchOne(
+        'SELECT id FROM bookings WHERE customer_id = ? LIMIT 1',
+        array($id)
+    ) !== null;
+}
+
+function deleteCustomer($id)
+{
+    return db()->execute('DELETE FROM customers WHERE id = ?', array($id));
+}
+
+function updateBookingStatus($id, $status)
+{
+    return db()->execute(
+        'UPDATE bookings SET status = ? WHERE id = ?',
+        array($status, $id)
+    );
 }
