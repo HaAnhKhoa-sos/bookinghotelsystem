@@ -24,6 +24,9 @@
             <div><dt>Giường</dt><dd><?= e($room['bed_description'] ?: 'Chưa cập nhật') ?></dd></div>
           </dl>
           <p class="room-status room-status-<?= e($room['status']) ?>"><?= $room['status'] === 'available' ? 'Có thể đặt' : ($room['status'] === 'occupied' ? 'Đang sử dụng' : 'Đang bảo trì') ?></p>
+          <?php if ($room['status'] === 'available'): ?>
+            <a class="btn btn-primary booking-cta" href="<?= e(url('booking', array('room_id' => $room['id']))) ?>">Đặt phòng này</a>
+          <?php endif; ?>
           <a class="btn btn-primary booking-cta" href="<?= e(url('rooms', array('room_type_id' => $room['room_type_id']))) ?>">Xem thêm phòng cùng loại</a>
         </div>
       </div>

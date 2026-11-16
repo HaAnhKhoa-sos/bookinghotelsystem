@@ -1,7 +1,3 @@
-<?php
-$pageTitle = 'Tổng quan | HotelBooking Admin';
-$stats = getAdminDashboardStats();
-?>
 <main class="admin-main">
   <header class="admin-page-heading">
     <div><p class="eyebrow">Quản lý lưu trú</p><h1>Tổng quan</h1></div>
@@ -15,8 +11,9 @@ $stats = getAdminDashboardStats();
   </section>
   <section class="admin-card">
     <h2>Quản lý dữ liệu khách sạn</h2>
-    <p>Quản lý phòng, thông tin khách hàng và trạng thái các đơn đặt phòng.</p>
+    <p>Quản lý loại phòng, phòng, thông tin khách hàng và trạng thái các đơn đặt phòng.</p>
     <p><a class="btn btn-primary" href="<?= e(admin_url('rooms')) ?>">Quản lý phòng</a>
+       <a class="btn btn-secondary admin-dashboard-link" href="<?= e(admin_url('room-types')) ?>">Quản lý loại phòng</a>
        <a class="btn btn-secondary admin-dashboard-link" href="<?= e(admin_url('bookings')) ?>">Quản lý đặt phòng</a>
        <a class="btn btn-secondary admin-dashboard-link" href="<?= e(admin_url('customers')) ?>">Quản lý khách hàng</a></p>
   </section>

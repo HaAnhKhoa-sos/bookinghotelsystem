@@ -4,6 +4,7 @@
   <nav aria-label="Điều hướng quản trị">
     <a href="<?= e(admin_url('dashboard')) ?>" <?= $activeAdminPage === 'dashboard' ? 'aria-current="page"' : '' ?>>Tổng quan</a>
     <a href="<?= e(admin_url('rooms')) ?>" <?= $activeAdminPage === 'rooms' ? 'aria-current="page"' : '' ?>>Phòng</a>
+    <a href="<?= e(admin_url('room-types')) ?>" <?= $activeAdminPage === 'room-types' ? 'aria-current="page"' : '' ?>>Loại phòng</a>
     <a href="<?= e(admin_url('bookings')) ?>" <?= $activeAdminPage === 'bookings' ? 'aria-current="page"' : '' ?>>Đặt phòng</a>
     <a href="<?= e(admin_url('customers')) ?>" <?= $activeAdminPage === 'customers' ? 'aria-current="page"' : '' ?>>Khách hàng</a>
     <a href="<?= e(url('home')) ?>">Xem trang khách</a>

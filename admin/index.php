@@ -9,6 +9,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 $routes = array(
     'dashboard' => 'dashboard/index.php',
     'rooms' => 'rooms/index.php',
+    'room-types' => 'room-types/index.php',
     'bookings' => 'bookings/index.php',
     'customers' => 'customers/index.php',
 );

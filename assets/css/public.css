@@ -2,6 +2,135 @@ body {
   background: #f8fafc;
 }
 
+.nav-logout {
+  display: inline-flex;
+  margin: 0;
+}
+
+.nav-logout button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.account-page {
+  max-width: 760px;
+}
+
+.account-card {
+  width: 100%;
+  margin: 0 auto 1.5rem;
+  padding: 1.75rem;
+}
+
+.account-card h1,
+.account-card h2 {
+  margin-top: 0;
+}
+
+.account-card form {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.account-card label {
+  margin-top: 0.35rem;
+  font-weight: 700;
+}
+
+.account-card input,
+.account-card select {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  font: inherit;
+}
+
+.account-card .btn {
+  width: fit-content;
+  margin-top: 0.75rem;
+  border: 0;
+  cursor: pointer;
+}
+
+.account-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.account-heading h1 {
+  margin: 0;
+}
+
+.account-table-wrap {
+  overflow-x: auto;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.account-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.account-table th,
+.account-table td {
+  padding: 0.85rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.account-table th {
+  background: #f8fafc;
+}
+
+.account-table small {
+  color: var(--muted);
+}
+
+.account-table form {
+  margin: 0;
+}
+
+.booking-summary {
+  margin: 1.25rem 0;
+  padding: 1rem;
+  background: #f4f8f7;
+  border-radius: 8px;
+}
+
+.booking-summary h2,
+.booking-summary p {
+  margin: 0 0 0.5rem;
+}
+
+.form-error,
+.form-success {
+  padding: 0.8rem 1rem;
+  border-radius: 7px;
+}
+
+.form-error {
+  background: #fef2f2;
+  color: #b42318;
+}
+
+.form-success {
+  background: #e8f7ef;
+  color: #17643b;
+}
+
 .section-card {
   background: #fff;
   border: 1px solid #e2e8f0;

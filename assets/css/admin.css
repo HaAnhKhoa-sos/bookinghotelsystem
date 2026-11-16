@@ -214,6 +214,24 @@ body {
   min-width: 0;
 }
 
+.form-group-wide {
+  grid-column: 1 / -1;
+}
+
+.admin-form-grid textarea.form-control {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.action-btns form {
+  margin: 0;
+}
+
+.action-btns button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
 .admin-page-heading {
   display: flex;
   align-items: center;

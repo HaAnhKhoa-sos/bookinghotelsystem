@@ -14,7 +14,20 @@
         <nav aria-label="Điều hướng chính">
           <a href="<?= e(url('home')) ?>">Trang chủ</a>
           <a href="<?= e(url('rooms')) ?>">Phòng nghỉ</a>
-          <a href="<?= e(url('rooms')) ?>">Đặt phòng</a>
+          <?php if (current_customer_id()): ?>
+            <a href="<?= e(url('my-bookings')) ?>">Đặt phòng của tôi</a>
+            <a href="<?= e(url('profile')) ?>">Tài khoản</a>
+            <form class="nav-logout" action="<?= e(url('logout')) ?>" method="post">
+              <input type="hidden" name="_csrf_token" value="<?= e(csrf_token()) ?>" />
+              <button type="submit">Đăng xuất</button>
+            </form>
+          <?php else: ?>
+            <a href="<?= e(url('login')) ?>">Đăng nhập</a>
+            <a href="<?= e(url('register')) ?>">Đăng ký</a>
+          <?php endif; ?>
         </nav>
       </div>
     </header>
+    <?php if ($notice = take_flash('notice')): ?>
+      <div class="container"><p class="form-success" role="status"><?= e($notice) ?></p></div>
+    <?php endif; ?>

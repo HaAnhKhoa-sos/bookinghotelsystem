@@ -44,4 +44,19 @@ class Database
     {
         return $this->connection->insert_id;
     }
+
+    public function beginTransaction()
+    {
+        return $this->connection->begin_transaction();
+    }
+
+    public function commit()
+    {
+        return $this->connection->commit();
+    }
+
+    public function rollBack()
+    {
+        return $this->connection->rollback();
+    }
 }

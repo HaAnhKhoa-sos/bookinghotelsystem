@@ -20,10 +20,27 @@ CREATE TABLE IF NOT EXISTS customers (
   full_name VARCHAR(150) NOT NULL,
   email VARCHAR(190) NOT NULL,
   phone VARCHAR(30) NOT NULL,
+  password_hash VARCHAR(255) NULL,
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id),
   UNIQUE KEY uq_customers_email (email)
 ) ENGINE=InnoDB;
+
+SET @has_customer_password_hash = (
+  SELECT COUNT(*)
+  FROM information_schema.columns
+  WHERE table_schema = DATABASE()
+    AND table_name = 'customers'
+    AND column_name = 'password_hash'
+);
+SET @add_customer_password_hash = IF(
+  @has_customer_password_hash = 0,
+  'ALTER TABLE customers ADD COLUMN password_hash VARCHAR(255) NULL AFTER phone',
+  'SELECT 1'
+);
+PREPARE add_customer_password_hash FROM @add_customer_password_hash;
+EXECUTE add_customer_password_hash;
+DEALLOCATE PREPARE add_customer_password_hash;
 
 CREATE TABLE IF NOT EXISTS rooms (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
